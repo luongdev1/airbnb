@@ -27,11 +27,11 @@ app.use(express.json())
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
 // cookie-parser
 app.use(cookieParser())
-
-
 // router
 route(app)
-
+app.get("/", (req, res) => {
+  res.send("home11")
+})
 // run
 app.listen(PORT, () => {
   console.log("server is running on port " + PORT)

@@ -26,7 +26,7 @@ class User {
               res
                 .cookie("token", token, {
                   secure: true,
-                  // expiresIn: new Date(Date.now() + 24 * 3600000 * 30).toString(),
+                  expiresIn: new Date(Date.now() + 24 * 3600000 * 30).toString(),
                 })
                 .json({status: true, message: "login is successful!"})
             },

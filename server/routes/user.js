@@ -6,36 +6,16 @@ import multer from "multer"
 import ensureDirectoryExist from "../lib/fileUtils.js"
 const router = express.Router()
 
-// const storage = multer.diskStorage({
-//      destination: function (req, file, cb) {
-//           cb(null, 'images/'); // Thư mục lưu trữ ảnh đã upload
-//      },
-//      filename: function (req, file, cb) {
-//           cb(null, Date.now() + '-' + file.originalname); // Đặt tên file mới
-//      },
-// });
-
-// const fileterImage = (req, file, cb) => {
-//      if (file.mimetype === 'image/jpg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpeg') {
-//           cb(null, true)
-//      }
-//      cb(null, false)
-// }
-
-// router.post('/image', multer({ storage: storage, fileFilter: fileterImage }).single('image'), UserController.upImage)
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/")
+    cb(null, "api/uploads/")
   },
   filename: function (req, file, cb) {
     const newName = "upload" + Date.now() + "." + file.mimetype.split("/")[1]
     cb(null, newName)
   },
 })
-
 const middlewareUploadImage = multer({storage: storage}).array("photos", 100)
-
 // place
 router.post("/uploadImage", ensureDirectoryExist, middlewareUploadImage, UserController.uploadImage)
 router.post("/upload-by-link", ensureDirectoryExist, UserController.uploadByLink)
@@ -92,9 +72,4 @@ router.post(
   ],
   UserController.register,
 )
-
-router.get('/', (req, res) => {
-  res.send("user")
-})
-
 export default router

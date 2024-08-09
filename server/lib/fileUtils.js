@@ -4,7 +4,7 @@ import {fileURLToPath} from "url"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-export const uploadDir = path.join(__dirname.split(path.sep).slice(0, -1).join(path.sep), "uploads")
+export const uploadDir = path.join(__dirname.split(path.sep).slice(0, -1).join(path.sep), "api/uploads")
 
 const ensureDirectoryExist = (req, res, next) => {
   if (!fs.existsSync(uploadDir)) {

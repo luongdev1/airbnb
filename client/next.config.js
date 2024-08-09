@@ -6,9 +6,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "3001",
+        protocol: "https",
+        hostname: "server-airbnb-phi.vercel.app",
         pathname: "/uploads/**",
       },
     ],

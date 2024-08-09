@@ -93,4 +93,8 @@ router.post(
   UserController.register,
 )
 
+router.get('/', (req, res) => {
+  res.send("user")
+})
+
 export default router

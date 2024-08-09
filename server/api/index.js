@@ -5,12 +5,14 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 import path from "path"
 import {fileURLToPath} from "url"
+import dotenv from "dotenv"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = 5000
+dotenv.config()
 
 // connect db
 db
@@ -36,3 +38,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log("server is running on port " + PORT)
 })
+
+export default app

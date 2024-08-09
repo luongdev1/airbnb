@@ -17,7 +17,7 @@ dotenv.config()
 db
 // cors
 const corsOptions = {
-  origin: process.env.ORIGIN_CORS || "http://localhost:3000",
+  origin: process.env.ORIGIN_CORS,
   credentials: true,
 }
 app.use(cors(corsOptions))

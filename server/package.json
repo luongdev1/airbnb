@@ -1,9 +1,9 @@
 {
   "name": "server",
   "type": "module",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon api/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

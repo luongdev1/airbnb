@@ -28,11 +28,11 @@ const page = () => {
         },
         {withCredentials: true},
       )
-      const result = await respone
-      if (result.data) {
+      if (respone.data) {
         router.push("/account/places")
       }
     } catch (error) {
+      console.error("Login failed:", error)
       alert("Login is failure!")
     }
   }

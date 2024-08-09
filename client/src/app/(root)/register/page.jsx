@@ -2,6 +2,7 @@
 import FormInput from "@/app/component/FormInput"
 import axios from "axios"
 import Link from "next/link"
+import {useRouter} from "next/navigation"
 import React, {useState} from "react"
 
 const page = () => {
@@ -11,7 +12,8 @@ const page = () => {
     password: "",
     confirmPw: "",
   })
-  
+  const router = useRouter()
+
   const onChange = (e) => {
     setData({...data, [e.target.name]: e.target.value})
   }
@@ -27,6 +29,9 @@ const page = () => {
       const result = await respone
       if (result.data) {
         alert("register is successful!")
+        router.push("/login")
+      } else {
+        alert("register is failure!")
       }
     } catch (error) {
       alert(error.response?.data?.message)

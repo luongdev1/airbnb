@@ -13,8 +13,6 @@ const page = () => {
   const isEmptydata = Object.values(data).some((data) => data === "")
   const router = useRouter()
 
-  const {setToast} = useContext(UserContext)
-
   const onChange = (e) => {
     setData({...data, [e.target.name]: e.target.value})
   }
@@ -35,8 +33,7 @@ const page = () => {
         router.push("/account/places")
       }
     } catch (error) {
-      const message = error?.response?.data.message
-      setToast({show: true, message, type: false})
+      alert("Login is failure!")
     }
   }
 

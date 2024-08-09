@@ -11,16 +11,17 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const app = express()
-const PORT = 5000
+const PORT = 3001
 dotenv.config()
 // connect db
 db
 // cors
-app.use(
-  cors({
-    credentials: true,
-  }),
-)
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+}
+app.use(cors(corsOptions))
+app.options("*", cors(corsOptions))
 // req json
 app.use(express.json())
 // accept accept to image on /uploads
@@ -29,7 +30,6 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 app.use(cookieParser())
 // router
 route(app)
-app.get("/", (req, res) => res.send("home"))
 // run
 app.listen(PORT, () => {
   console.log("server is running on port " + PORT)

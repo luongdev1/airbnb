@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    baseUrl: "https://server-airbnb-phi.vercel.app",
+    baseUrl: "http://localhost:3001",
   },
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "server-airbnb-phi.vercel.app",
+        protocol: "http",
+        hostname: "localhost",
+        port: "3001",
         pathname: "/uploads/**",
       },
     ],
